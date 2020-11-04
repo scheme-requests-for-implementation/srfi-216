@@ -6,7 +6,7 @@
 
 ;;; r4rs booleans
 
-(define true #t) 
+(define true #t)
 (define false #f) ;; luckily, SICP does not use '() as false
 
 ;;; Random numbers.
@@ -42,7 +42,7 @@
 (define central-old-mutex (make-mutex 'global-srfi-18-mutex)) ;; not exported
 
 (define (test-and-set! cell) ;; srfi-18
-  (mutex-lock! central-old-mutex) 
+  (mutex-lock! central-old-mutex)
   (let ((output (if (car cell) #t (begin (set-car! cell #t) #f))))
     (mutex-unlock! central-old-mutex)
     output))
