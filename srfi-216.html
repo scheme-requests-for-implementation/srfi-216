@@ -83,7 +83,7 @@ This SRFI, combined with SRFI 203, can be compared to SRFI 96, which is to SLIB 
 </p>
 
 <p>
-This SRFI provides three constants, five procedures, and one syntactic construction.
+This SRFI provides four constants, five procedures, and one syntactic construction.
 </p>
 
 <h2 id="specification">Specification</h2>
@@ -111,6 +111,15 @@ Even though Scheme reports as early as R4RS (Sections 3.2, 6.1) already have <co
 </DD>
 </DL>
 
+<h3>The empty list</h3>
+<dl>
+<dt><u>Constant:</u><code>nil</code></dt>
+<dd>
+Must have a value that represents the empty list in the Scheme implementation hosting this SRFI.
+<br>
+<u>Remark:</u> even though many modern Scheme implementations only use <code>'()</code> to represent the empty list, SICP follows the Lisp tradition in this respect.
+</dd>
+</dl>
 <h3>Time data</h3>
 
 <dl>

@@ -1,5 +1,5 @@
 ;;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-11-05 10:51:34 lockywolf>
+;; Time-stamp: <2020-11-05 19:35:31 lockywolf>
 ;; Title: srfi-216 sample implementation.
 ;; Author: lockywolf
 ;; Created: <2020-11-03 Tue>
@@ -8,6 +8,9 @@
 
 (define true #t)
 (define false #f) ;; luckily, SICP does not use '() as false
+
+;;; Empty list
+(define nil '())
 
 ;;; Random numbers.
 

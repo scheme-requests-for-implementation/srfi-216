@@ -1,5 +1,5 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-11-05 10:52:00 lockywolf>
+;; Time-stamp: <2020-11-05 19:35:47 lockywolf>
 ;; Author: lockywof
 ;; Created: <2020-11-03 Tue 16:23>
 ;; Title: r7rs library declarations for srfi-216
@@ -24,6 +24,7 @@
 	  the-empty-stream ;; constant
 	  true ;; constant
 	  false ;; constant
+	  nil ;; constant
 	  )
 
   (include "216/216.scm"))

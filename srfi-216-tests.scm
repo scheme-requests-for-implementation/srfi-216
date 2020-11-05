@@ -1,5 +1,5 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-11-05 10:52:15 lockywolf>
+;; Time-stamp: <2020-11-05 19:47:40 lockywolf>
 ;; Title: Testing SRFI-?.
 ;; Author: lockywolf
 ;; Date: <2020-11-03 Tue>
@@ -69,6 +69,8 @@
 (check (if true
 	   #t
 	   #f) => #t)
+
+(check nil => '())
 
 ;; Testing streams.
 
