@@ -4,11 +4,13 @@
 
 
 
-keywords: [[https://srfi.schemers.org/?keywords=miscellaneous][Miscellaneous]]
+keywords: [[https://srfi.schemers.org/?keywords=sicp][SICP]]
 
 This repository hosts [[https://srfi.schemers.org/srfi-216/][SRFI 216]]: SICP Prerequisites (Portable), a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 
 This SRFI is in /draft/ status.
+
+See also [[https://srfi.schemers.org/srfi-203/][SRFI 203: A Simple Picture Language in the Style of SICP]].
 
 The full documentation for this SRFI can be found in the [[https://srfi.schemers.org/srfi-216/srfi-216.html][SRFI Document]].
 
