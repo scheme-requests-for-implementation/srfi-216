@@ -1,5 +1,5 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-11-03 23:46:08 lockywolf>
+;; Time-stamp: <2020-11-05 10:52:15 lockywolf>
 ;; Title: Testing SRFI-?.
 ;; Author: lockywolf
 ;; Date: <2020-11-03 Tue>
@@ -9,7 +9,7 @@
 ;; Run the tests in the interpreter and see which fail. This does not work with tests that run indefinitely.
 
 
-(import (srfi-libs))
+(import (srfi 216))
 (import (srfi 78))
 (import (only (srfi 27) random-integer))
 

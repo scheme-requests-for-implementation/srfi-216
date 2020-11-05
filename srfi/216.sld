@@ -1,15 +1,12 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-11-04 11:05:56 lockywolf>
+;; Time-stamp: <2020-11-05 10:52:00 lockywolf>
 ;; Author: lockywof
 ;; Created: <2020-11-03 Tue 16:23>
-;; Title: r7rs library declarations for srfi-?
+;; Title: r7rs library declarations for srfi-216
 
 
-(define-library (srfi-libs)
+(define-library (srfi 216)
   (import (scheme small))
-  ;; define-syntax
-  ;; syntax-rules
-  ;; delay
   (import (only (srfi 27) random-integer))
   (import (only (srfi 18)
 		thread-start!
@@ -29,5 +26,5 @@
 	  false ;; constant
 	  )
 
-  (include "srfi-libs.scm"))
+  (include "216/216.scm"))
 
