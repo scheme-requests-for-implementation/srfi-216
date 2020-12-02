@@ -17,7 +17,7 @@
 ;;; Timing.
 
 (define (runtime) ;; r7rs
-  (* 1000 (current-second))) ;; microseconds
+  (* (current-jiffy) (jiffies-per-second) #e1e6)) ;; microseconds
 
 ;;; Multi-threading.
 

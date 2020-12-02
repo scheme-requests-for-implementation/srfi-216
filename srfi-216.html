@@ -83,7 +83,7 @@ This SRFI, combined with SRFI 203, can be compared to SRFI 96, which is to SLIB 
 </p>
 
 <p>
-This SRFI provides three constants, five procedures, and one syntactic construction.
+This SRFI provides four constants, five procedures, and one syntactic construction.
 </p>
 
 <h2 id="specification">Specification</h2>
@@ -111,6 +111,15 @@ Even though Scheme reports as early as R4RS (Sections 3.2, 6.1) already have <co
 </DD>
 </DL>
 
+<h3>The empty list</h3>
+<dl>
+<dt><u>Constant:</u><code>nil</code></dt>
+<dd>
+Must have a value that represents the empty list in the Scheme implementation hosting this SRFI.
+<br>
+<u>Remark:</u> even though many modern Scheme implementations only use <code>'()</code> to represent the empty list, SICP follows the Lisp tradition in this respect.
+</dd>
+</dl>
 <h3>Time data</h3>
 
 <dl>
@@ -125,7 +134,7 @@ See Section 1.2.6 of the SICP, Subsection "Probabilistic Methods", Exercise 1.22
 <br>
 <u>Example:</u><br>
 <pre>
-(runtime)
+(display (runtime))
 ;; prints 1604464095599.357
 </pre>
 <br>
@@ -171,7 +180,7 @@ See SICP Section 3.4.2, Subsection "Serializers in Scheme".
 (parallel-execute
   (lambda () (set! x (* x x))) ; P1
   (lambda () (set! x (+ x 1)))) ; P2
-;; May assign x to any of the following:
+;; May assign to x any of the following:
 ;; 101 - P1 sets x to 100 and then P2 increments x to 101.
 ;; 121 - P2 increments x to 11 and then P1 sets x to x * x.
 ;; 110 - P2 changes x from 10 to 11 between the two times that P1 accesses the value of x during the evaluation of (* x x).
@@ -199,6 +208,7 @@ Is equivalent to <code>(cons a (delay b))</code>.
 See SICP Section 3.5.1.
 <u>Remark:</u>
 The necessity to include <code>cons-stream</code> is due to  the fact that SICP does not introduce any syntax-altering constructs beyond writing your own metacircular interpreter.
+Please, note that the <code>stream-cons</code> procedure from SRFI-41 (implementing "even" streams) would not be a drop-in replacement for <code>cons-stream</code>.
 </dd>
 
 <dt><u>Constant:</u> <code>the-empty-stream</code></dt>
@@ -235,7 +245,7 @@ As mentioned in <a href="https://srfi.schemers.org/srfi-41/srfi-41.html">SRFI 41
 
 <h2 id="implementation">Implementation</h2>
 
-The sample implementation consists of three files attached to this document.
+The sample implementation that has been tested on Chibi-Scheme, consists of three files attached to this document.
 <a href="srfi-libs.scm">srfi-libs.scm</a>
 provides the code that can be <code>load</code>'ed in a Scheme REPL.
 <a href="srfi-libs.sld">srfi-libs.sld</a>
