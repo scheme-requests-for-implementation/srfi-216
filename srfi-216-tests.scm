@@ -1,5 +1,5 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-11-05 19:47:40 lockywolf>
+;; Time-stamp: <2020-11-08 23:27:06 lockywolf>
 ;; Title: Testing SRFI-?.
 ;; Author: lockywolf
 ;; Date: <2020-11-03 Tue>
@@ -10,7 +10,7 @@
 
 
 (import (srfi 216))
-(import (srfi 78))
+(import (srfi 78)) ;; provides (check ...)
 (import (only (srfi 27) random-integer))
 
 ;;; Test runtime.
