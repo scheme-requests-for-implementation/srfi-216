@@ -1,5 +1,5 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-11-08 23:27:06 lockywolf>
+;; Time-stamp: <2020-12-04 12:10:58 lockywolf>
 ;; Title: Testing SRFI-?.
 ;; Author: lockywolf
 ;; Date: <2020-11-03 Tue>
@@ -12,10 +12,19 @@
 (import (srfi 216))
 (import (srfi 78)) ;; provides (check ...)
 (import (only (srfi 27) random-integer))
+(import (only (scheme time) current-second))
+(import (only (scheme write) display))
+
+(define (sleep-a-little)
+  (define starting-time (current-second))
+  (let loop ()
+    (if (< (- (current-second) starting-time) 1)
+       (loop))))
 
 ;;; Test runtime.
-(check (> (- (runtime)
-	     (runtime)) 0) => #t)
+(check (> (let* ((first-value (runtime))
+                 (second-value (begin (sleep-a-little) (runtime))))
+                 (- second-value first-value)) 0) => #t)
 
 ;;; Test random.
 (check (> (random 100) -1) => #t)
