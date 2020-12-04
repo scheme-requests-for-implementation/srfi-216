@@ -1,5 +1,5 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-12-02 12:52:50 lockywolf>
+;; Time-stamp: <2020-12-04 12:11:14 lockywolf>
 ;; Author: lockywof
 ;; Created: <2020-11-03 Tue 16:23>
 ;; Title: r7rs library declarations for srfi-216
@@ -8,6 +8,8 @@
 (define-library (srfi 216)
   (import (scheme base))
   (import (scheme time))
+  (import (only (scheme write) display))
+  (import (scheme lazy))
   (import (only (srfi 27) random-integer))
   (import (only (srfi 18)
 		thread-start!
