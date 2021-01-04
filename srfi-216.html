@@ -40,11 +40,11 @@ Whereas SRFI 203 focused on the necessarily non-portable aspects of the problem 
 </p>
 
 <p>
-This SRFI provides subroutines for working with time data, multi-threading, streams and SICP names for <code>true</code> and <code>false</code>.
+This SRFI provides procedures for working with time data, multi-threading, and streams, as well as SICP names for <code>true</code> and <code>false</code>.
 </p>
 
 <p>
-None of these subroutines are fit for production use, and are only designed for pedagogical purposes.
+None of these procedures is fit for production use.  They are only designed for pedagogical purposes.
 </p>
 
 <p>
@@ -75,10 +75,10 @@ Furthermore, the textbook assumes the existence of several primitives not includ
 Most of these primitives are already either covered by other relevant SRFIs, or can be implemented on top of those.
 
 This SRFI aims at doing precisely this.
-The sample implementation uses the features provided by SRFIs 18 and 27, as well as several features provided by the R7RS report, in order to implement the subroutines that SICP code examples assume to exist.
+The sample implementation uses the features provided by SRFIs 18 and 27, as well as several features provided by the R7RS report, in order to implement the procedures that SICP code examples assume to exist.
 
 The picture language of Section 2.2.4 is out of scope for this SRFI.
-Users are encouraged to refer to the SRFI 203, or any SRFI that supersedes it, for the missing subroutines.
+Users are encouraged to refer to the SRFI 203, or any SRFI that supersedes it, for the missing procedures.
 
 This SRFI, combined with SRFI 203, can be compared to SRFI 96, which is to SLIB as these SRFIs are to the SICP. SRFI 96 makes no attempt to document SLIB (which has over 200 modules), much less to extend it. Instead, it documents the constants, variables, procedures, and syntax forms that a Scheme must provide in order to fully host SLIB, which amount to less than forty.
 </p>
@@ -114,7 +114,7 @@ Even though Scheme reports as early as R4RS (Sections 3.2, 6.1) already have <co
 
 <h3>The empty list</h3>
 <dl>
-<dt><u>Constant:</u><code>nil</code></dt>
+<dt><u>Constant:</u> <code>nil</code></dt>
 <dd>
 Must have a value that represents the empty list in the Scheme implementation hosting this SRFI.
 <br>
@@ -139,7 +139,7 @@ See Section 1.2.6 of the SICP, Subsection "Probabilistic Methods", Exercise 1.22
 ;; prints 1604464095599.357
 </pre>
 <br>
-<u>Remark:</u> it is not clear which "system" was running, and in fact, the absolute value returned by this subroutine is never used by itself. The author of this SRFI, therefore, opted into assuming that the "system" is the UNIX<sup>TM</sup> operating system, and it "has been running" since the Epoch, Midnight on January 1, 1970 TAI.
+<u>Remark:</u> it is not clear which "system" was running, and in fact, the absolute value returned by this procedure is never used by itself. The author of this SRFI, therefore, opted into assuming that the "system" is the UNIX<sup>TM</sup> operating system, and it "has been running" since the Epoch, Midnight on January 1, 1970 TAI.
 </dd>
 </dl>
 
@@ -149,7 +149,7 @@ See Section 1.2.6 of the SICP, Subsection "Probabilistic Methods", Exercise 1.22
 <dt><u>Procedure:</u> <code>(random x)</code>
 </dt>
 <dd>
-Returns a nonnegative integer less than its integer input.
+Returns a nonnegative integer less than its integer argument.
 
 See Section 1.2.6 of the SICP, Subsection "Fermat Test".
 <br>
@@ -192,7 +192,7 @@ See SICP Section 3.4.2, Subsection "Serializers in Scheme".
 <dt><u>Procedure:</u> <code>(test-and-set! cell)</code></dt>
 <dd>
 Tests the cell and returns the result of the test. In addition, if the test was false, <code>test-and-set!</code>  sets the cell contents to true before returning false.<br>
-The test-and-set! operation must be performed atomically. That is, the implementations must guarantee that, once a process has tested the cell and found it to be false, the cell contents will actually be set to true before any other process can test the cell.
+The <code>test-and-set!</code> operation must be performed atomically. That is, the implementation must guarantee that, once a process has tested the cell and found it to be false, the cell contents will actually be set to true before any other process can test the cell.
 
 See Section 3.4.2, Subsection "Implementing Serializers".
 </dd>
@@ -207,13 +207,14 @@ The sample implementation uses <a href="https://srfi.schemers.org/srfi-18/">SRFI
 <dd>
 Is equivalent to <code>(cons a (delay b))</code>.
 See SICP Section 3.5.1.
+<br>
 <u>Remark:</u>
 The necessity to include <code>cons-stream</code> is due to  the fact that SICP does not introduce any syntax-altering constructs beyond writing your own metacircular interpreter.
-Please, note that the <code>stream-cons</code> procedure from SRFI-41 (implementing "even" streams) would not be a drop-in replacement for <code>cons-stream</code>.
+Please note that the <code>stream-cons</code> procedure from SRFI-41 (implementing "even" streams) would not be a drop-in replacement for <code>cons-stream</code>.
 </dd>
 
 <dt><u>Constant:</u> <code>the-empty-stream</code></dt>
-<dd>A distinguishable object, which cannot be the result of any <code>cons-stream</code> operation.
+<dd>A distinguishable object that cannot be the result of any <code>cons-stream</code> operation.
 See SICP Section 3.5.1, footnote 54.
 <br>
 <u>Remark:</u>
@@ -248,7 +249,7 @@ As mentioned in <a href="https://srfi.schemers.org/srfi-41/srfi-41.html">SRFI 41
 
 The sample implementation that has been tested on Chibi-Scheme, consists of three files attached to this document.
 <a href="srfi-libs.scm">srfi-libs.scm</a>
-provides the code that can be <code>load</code>'ed in a Scheme REPL.
+provides the code that can be <code>load</code>-ed in a Scheme REPL.
 <a href="srfi-libs.sld">srfi-libs.sld</a>
 is an R7RS library that can be <code>import</code>-ed in an R7RS Scheme,
 provided that SRFI 18 and SRFI 27 are available.
@@ -257,31 +258,30 @@ provided that SRFI 18 and SRFI 27 are available.
 <h2>References:</h2>
 
 <ol>
-<LI> Structure and Interpretation of Computer Programs, companion web site.
-    <A HREF="https://mitpress.mit.edu/sites/default/files/sicp/index.html"> Link </A>
+<LI> Structure and Interpretation of Computer Programs
+    (<A HREF="https://mitpress.mit.edu/sites/default/files/sicp/index.html">companion web site</A>)
 </LI>
-<LI> Unofficial PDF of SICP, second edition.
-     <A HREF="https://web.mit.edu/alexmv/6.037/sicp.pdf"> PDF </A>,
-     <A HREF="https://github.com/jrincayc/sicp-pdf"> Source </A>
-</LI>
-<LI>
-     <A HREF="https://srfi.schemers.org/srfi-27/"> SRFI 27: Sources of Random Bits </A>
+<LI> <A HREF="https://web.mit.edu/alexmv/6.037/sicp.pdf">Unofficial PDF</A> of SICP, second edition
+     (<A HREF="https://github.com/jrincayc/sicp-pdf">source</A>)
 </LI>
 <LI>
-     <A HREF="https://srfi.schemers.org/srfi-18/"> SRFI 18: Multithreading support </A>
+     <A HREF="https://srfi.schemers.org/srfi-27/"> SRFI 27: Sources of Random Bits</A>
 </LI>
-<LI> Revised^7 Report on Algorithmic Language Scheme
-     <A HREF="https://small.r7rs.org/"> Companion Website </A>,
-     <A HREF="https://small.r7rs.org/attachment/r7rs.pdf"> PDF </A>
+<LI>
+     <A HREF="https://srfi.schemers.org/srfi-18/"> SRFI 18: Multithreading support</A>
 </LI>
-<LI> Revised^4 Report on Algorithmic Language Scheme
-     <A HREF="http://people.csail.mit.edu/jaffer/r4rs.pdf"> PDF </A>
+<LI> Revised<sup>7</sup> Report on Algorithmic Language Scheme
+     (<A HREF="https://small.r7rs.org/">companion web site</A>,
+     <A HREF="https://small.r7rs.org/attachment/r7rs.pdf">PDF</A>)
+</LI>
+<LI> Revised<sup>4</sup> Report on Algorithmic Language Scheme
+     (<A HREF="http://people.csail.mit.edu/jaffer/r4rs.pdf">PDF</A>)
 </LI>
 
 <LI>
 <A HREF=" https://groups.csail.mit.edu/mac/ftpdir/scheme-mail/HTML/rrrs-1986/msg00034.html">
-An internal discussion in an MIT mailing list, dedicated to solving the same problem.
-</A>
+An internal discussion in an MIT mailing list
+</A>, dedicated to solving the same problem.
 </LI>
 
 </ol>
