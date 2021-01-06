@@ -1,5 +1,5 @@
 ;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-12-04 12:10:58 lockywolf>
+;; Time-stamp: <2021-01-06 22:50:57 lockywolf>
 ;; Title: Testing SRFI-?.
 ;; Author: lockywolf
 ;; Date: <2020-11-03 Tue>
@@ -7,13 +7,18 @@
 ;;; Manual
 ;; The tests use the standard simple srfi-78 testing framework.
 ;; Run the tests in the interpreter and see which fail. This does not work with tests that run indefinitely.
-
+;; For example, I, lockywolf, ran them like this:
+;; ```
+;; cd srfi-216
+;; chibi-scheme -R
+;; (load "srfi-216-tests.scm")
 
 (import (srfi 216))
 (import (srfi 78)) ;; provides (check ...)
 (import (only (srfi 27) random-integer))
 (import (only (scheme time) current-second))
 (import (only (scheme write) display))
+(import (only (scheme base)  exact-integer?))
 
 (define (sleep-a-little)
   (define starting-time (current-second))
@@ -29,6 +34,9 @@
 ;;; Test random.
 (check (> (random 100) -1) => #t)
 (check (< (random 100) 100) => #t)
+(check (exact-integer? (random 100)) => #t)
+(check (exact-integer? (random 100.0)) => #f)
+
 
 ;;; Test parallel-execute.
 

@@ -1,5 +1,5 @@
 ;;; -*- mode: scheme; -*-
-;; Time-stamp: <2020-12-02 12:29:47 lockywolf>
+;; Time-stamp: <2021-01-06 22:42:17 lockywolf>
 ;; Title: srfi-216 sample implementation.
 ;; Author: lockywolf
 ;; Created: <2020-11-03 Tue>
@@ -15,7 +15,9 @@
 ;;; Random numbers.
 
 (define (random x) ;; srfi-27
-    (random-integer x))
+  (if (exact-integer? x)
+     (random-integer x)
+     (* x (random-real))))
 
 ;;; Timing.
 

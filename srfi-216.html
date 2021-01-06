@@ -149,9 +149,13 @@ See Section 1.2.6 of the SICP, Subsection "Probabilistic Methods", Exercise 1.22
 <dt><u>Procedure:</u> <code>(random x)</code>
 </dt>
 <dd>
-Returns a nonnegative integer less than its integer input.
+Returns a nonnegative number less than its input.
+If random is given an exact integer it returns an exact integer,
+but if it is given a decimal value it returns a decimal value.
+If <code>x</code> is less than 0, the behaviour is unspecified.
 
-See Section 1.2.6 of the SICP, Subsection "Fermat Test".
+See Section 1.2.6 of the SICP, Subsection "Fermat Test", and Exercise 3.5, footnote 8. 
+
 <br>
 <u>Example:</u><br>
 <pre>
@@ -284,6 +288,9 @@ An internal discussion in an MIT mailing list
 </A>, dedicated to solving the same problem.
 </LI>
 
+<li>
+<a href="https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref/Random-Numbers.html#Random-Numbers">MIT Scheme Reference on <code>(random x)</code></a>
+</li>
 </ol>
 
 <h2 id="acknowledgements">Acknowledgements</h2>
