@@ -252,12 +252,14 @@ As mentioned in <a href="https://srfi.schemers.org/srfi-41/srfi-41.html">SRFI 41
 <h2 id="implementation">Implementation</h2>
 
 The sample implementation that has been tested on Chibi-Scheme, consists of three files attached to this document.
-<a href="srfi-libs.scm">srfi-libs.scm</a>
-provides the code that can be <code>load</code>-ed in a Scheme REPL.
-<a href="srfi-libs.sld">srfi-libs.sld</a>
+<a href="srfi/216/216.scm">srfi/216/216.scm</a>
+provides the code that can be <code>load</code>-ed in a Scheme REPL, provided that SRFI 18 and SRFI 27 are available.
+
+<a href="srfi/216/216.sld">srfi/216.sld</a>
 is an R7RS library that can be <code>import</code>-ed in an R7RS Scheme,
 provided that SRFI 18 and SRFI 27 are available.
-<a href="srfi-libs-tests.scm">srfi-libs-tests.scm</a> contains a simple conformance test, and uses <a href="https://srfi.schemers.org/srfi-78/">SRFI 78</a>.
+
+<a href="srfi-216-tests.scm">srfi-216-tests.scm</a> contains a simple conformance test, and uses <a href="https://srfi.schemers.org/srfi-78/">SRFI 78</a>.
 
 <h2>References:</h2>
 
